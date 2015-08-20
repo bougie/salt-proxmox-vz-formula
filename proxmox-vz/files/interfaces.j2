@@ -1,0 +1,12 @@
+auto lo
+iface lo inet loopback
+
+{% for interface in interfaces %}
+auto {{interface.name}}
+iface {{interface.name}} inet static
+	address {{interface.ip}}
+	netmask {{interface.mask}}
+	{% if interface.gateway is defined -%}
+	gateway {{interface.gateway}}
+	{% endif %}
+{% endfor %}

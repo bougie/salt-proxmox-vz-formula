@@ -1,0 +1,8 @@
+{% load_yaml as rawmap %}
+vz_root_dir: /var/lib/vz/private
+ifx_file:
+    centos: "/etc/sysconfig/network-scripts/ifcfg-%s"
+    default: /etc/network/interfaces
+gw_file:
+    centos: /etc/sysconfig/network
+{% endload %}

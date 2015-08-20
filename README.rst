@@ -15,6 +15,7 @@ Available states
 .. contents::
     :local:
 
-``proxmox-vz``
---------------
+``proxmox-vz.network``
+----------------------
 
+Manage network configuration of container

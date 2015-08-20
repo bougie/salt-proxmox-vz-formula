@@ -1,0 +1,9 @@
+proxmox-vz:
+    containers:
+        100:
+            type: centos
+            network:
+                eth0:
+                    ip: 192.168.42.69
+                    mask: 255.255.255.0
+                    gateway: 192.168.42.1

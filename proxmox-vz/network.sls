@@ -38,15 +38,13 @@
         - template: jinja
         - context:
             interface: {{ifx}}
-
-                    {% if ctcfg.type in rawmap.gw_file and ifx.gateway is defined %}
-{{ctid ~ '_ct_network_' ~ ifx.name ~ '_gw'}}:
+                    {% if ifx.gateway is defined %}
+{{ctid ~ '_ct_network_' ~ ifx.name ~ '_gwdev'}}:
     file.replace:
-        - name: {{rawmap.vz_root_dir ~ '/' ~ ctid ~ rawmap.gw_file[ctcfg.type]}}
+        - name: {{rawmap.vz_root_dir ~ '/' ~ ctid ~ '/etc/sysconfig/network'}}
         - pattern: |
-            ^GATEWAY=.+\n
-        - repl: {{'GATEWAY=' ~ ifx.gateway}}
-        - append_if_not_found: "True"
+            (GATEWAYDEV=".+")
+        - repl: {{'GATEWAYDEV="' ~ ifx.name ~ '"'}}\n
                     {% endif %}
                 {% endfor %}
             {% else %}

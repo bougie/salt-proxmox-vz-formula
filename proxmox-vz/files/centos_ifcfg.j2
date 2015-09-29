@@ -1,6 +1,9 @@
 DEVICE={{interface.name}}
 IPADDR={{interface.ip}}
 NETMASK={{interface.mask}}
+{% if interface.gateway is defined %}
+GATEWAY={{interface.gateway}}
+{% endif %}
 BOOTPROTO=none
 ONBOOT=yes
 USERCTL=no

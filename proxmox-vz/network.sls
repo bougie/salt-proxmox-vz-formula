@@ -1,5 +1,5 @@
 {% from "proxmox-vz/default.yml" import rawmap with context %}
-{% set rawmap = salt['pillar.get']('proxmox-vz', rawmap, merge=True) %}
+{% set rawmap = salt['pillar.get']('proxmox-vz', rawmap) %}
 
 {% if salt['grains.get']('os') in rawmap.ifx_file %}
     {% set ifx_cfg_file = rawmap.ifx_file[salt['grains.get']('os')] %}
